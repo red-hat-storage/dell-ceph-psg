@@ -1,0 +1,6 @@
+include include-global.fio
+iodepth=32
+bs=4k
+size=20G
+rw=randwrite
+gtod_cpu=31

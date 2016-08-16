@@ -1,0 +1,11 @@
+[global]
+include include-osd-all-lat-read.fio
+
+{% for osd in osds %}
+[osd{{ loop.index }}-lat-read]
+filename=fio.test.file
+directory=/mnt/osds/osd{{ loop.index }}
+write_bw_log=osd{{ loop.index }}-lat-read
+write_lat_log=osd{{ loop.index }}-lat-read
+write_iops_log=osd{{ loop.index }}-lat-read
+{% endfor %}

@@ -1,0 +1,7 @@
+include include-global.fio
+iodepth=32
+numjobs=1
+bs=4k
+size=20G
+rw=randrw
+rwmixwrite=70

@@ -1,0 +1,6 @@
+include include-global.fio
+iodepth=4
+numjobs=1
+bs=8k
+size=20G
+rw=randread

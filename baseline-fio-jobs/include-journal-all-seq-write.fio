@@ -1,0 +1,5 @@
+include include-global.fio
+bs=1m
+iodepth=4
+numjobs=1
+rw=write

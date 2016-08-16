@@ -1,0 +1,11 @@
+[global]
+include include-journal-all-lat-read.fio
+
+{% for journal in journals %}
+[journal{{ loop.index }}-lat-read]
+filename=fio.test.file
+directory=/mnt/journals/journal{{ loop.index }}
+write_bw_log=journal{{ loop.index }}-lat-read
+write_lat_log=journal{{ loop.index }}-lat-read
+write_iops_log=journal{{ loop.index }}-lat-read
+{% endfor %}

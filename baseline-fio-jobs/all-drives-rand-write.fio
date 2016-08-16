@@ -1,0 +1,23 @@
+[global]
+include include-journal-all-rand-write.fio
+
+{% for journal in journals %}
+[journal{{ loop.index }}-rand-write-all-drives]
+filename=fio.test.file
+directory=/mnt/journals/journal{{ loop.index }}
+write_bw_log=journal{{ loop.index }}-rand-write-all-drives
+write_lat_log=journal{{ loop.index }}-rand-write-all-drives
+write_iops_log=journal{{ loop.index }}-rand-write-all-drives
+{% endfor %}
+
+[global]
+include include-osd-all-rand-write.fio
+
+{% for osd in osds %}
+[osd{{ loop.index }}-rand-write-all-drives]
+filename=fio.test.file
+directory=/mnt/osds/osd{{ loop.index }}
+write_bw_log=osd{{ loop.index }}-rand-write-all-drives
+write_lat_log=osd{{ loop.index }}-rand-write-all-drives
+write_iops_log=osd{{ loop.index }}-rand-write-all-drives
+{% endfor %}

@@ -1,0 +1,33 @@
+cluster:
+  user: 'cbt'
+  head: "r220-01"
+  clients: ["r220-01", "r220-02", "r220-03", "r220-04", "r220-05", "r220-06", "r220-07", "r220-08"]
+  osds: ["r730xd-01", "r730xd-02", "r730xd-03", "r730xd-04", "r730xd-05"]
+  mons:
+    r630-01:
+      a: "192.168.100.101:6789"
+    r630-02:
+      a: "192.168.100.102:6789"
+    r630-03:
+      a: "192.168.100.103:6789"
+  iterations: 1
+  use_existing: True
+  clusterid: "ceph"
+  tmp_dir: "/tmp/cbt"
+  pool_profiles:
+    erasure_coded:
+      pg_size: 4096
+      pgp_size: 4096
+      replication: 'erasure'
+      erasure_profile: 'isa-3-2'
+benchmarks:
+  radosbench:
+    op_size: [ 4194304, 1048576, 524288, 131072 ]    
+    write_only: False
+    time: 300
+    concurrent_ops: [ 128 ]
+    concurrent_procs: 1
+    use_existing: True
+    pool_profile: erasure_coded
+    readmode: seq
+    osd_ra: [131072]

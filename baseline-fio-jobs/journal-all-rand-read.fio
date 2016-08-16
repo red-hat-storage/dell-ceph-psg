@@ -1,0 +1,11 @@
+[global]
+include include-journal-all-rand-read.fio
+
+{% for journal in journals %}
+[journal{{ loop.index }}-rand-read]
+filename=fio.test.file
+directory=/mnt/journals/journal{{ loop.index }}
+write_bw_log=journal{{ loop.index }}-rand-read
+write_lat_log=journal{{ loop.index }}-rand-read
+write_iops_log=journal{{ loop.index }}-rand-read
+{% endfor %}

@@ -1,0 +1,11 @@
+[global]
+include include-journal-fill-half.fio
+
+{% for journal in journals %}
+[journal{{ loop.index }}-fill-half]
+filename=fio.test.file
+directory=/mnt/journals/journal{{ loop.index }}
+write_bw_log=journal{{ loop.index }}-fill-half
+write_lat_log=journal{{ loop.index }}-fill-half
+write_iops_log=journal{{ loop.index }}-fill-half
+{% endfor %}

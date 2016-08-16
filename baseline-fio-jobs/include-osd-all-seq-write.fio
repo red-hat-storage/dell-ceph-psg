@@ -1,0 +1,7 @@
+include include-global.fio
+bs=1m
+iodepth=4
+numjobs=1
+runtime=120
+ramp_time=20
+rw=write

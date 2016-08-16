@@ -1,0 +1,11 @@
+[global]
+include include-osd-all-seq-write.fio
+
+{% for osd in osds %}
+[osd{{ loop.index }}-seq-write]
+filename=fio.test.file
+directory=/mnt/osds/osd{{ loop.index }}
+write_bw_log=osd{{ loop.index }}-seq-write
+write_lat_log=osd{{ loop.index }}-seq-write
+write_iops_log=osd{{ loop.index }}-seq-write
+{% endfor %}

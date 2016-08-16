@@ -1,0 +1,11 @@
+[global]
+include include-osd-all-rand-wr-mix.fio
+
+{% for osd in osds %}
+[osd{{ loop.index }}-rand-wr-mix]
+filename=fio.test.file
+directory=/mnt/osds/osd{{ loop.index }}
+write_bw_log=osd{{ loop.index }}-rand-wr-mix
+write_lat_log=osd{{ loop.index }}-rand-wr-mix
+write_iops_log=osd{{ loop.index }}-rand-wr-mix
+{% endfor %}
